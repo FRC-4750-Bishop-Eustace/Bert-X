@@ -5,10 +5,18 @@
 package frc.robot.Subsystem;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.RobotMap;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 public class Drivetrain extends SubsystemBase {
   /** Creates a new Drivetrain. */
-  public Drivetrain() {}
+  public Drivetrain() {
+    //initialize motors
+    //leftFront = new WPI_TalonSRX(RobotMap.LEFT_FRONT_ID);
+
+  }
+    
+
 
   @Override
   public void periodic() {
