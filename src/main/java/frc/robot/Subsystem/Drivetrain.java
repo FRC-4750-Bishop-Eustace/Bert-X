@@ -10,9 +10,16 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 public class Drivetrain extends SubsystemBase {
   /** Creates a new Drivetrain. */
+
+    //create motors
+    public WPI_TalonSRX leftFront, leftBack, rightFront, rightBack;
+
   public Drivetrain() {
     //initialize motors
-    //leftFront = new WPI_TalonSRX(RobotMap.LEFT_FRONT_ID);
+    leftFront = new WPI_TalonSRX(RobotMap.LEFT_FRONT_ID);
+    leftBack = new WPI_TalonSRX(RobotMap.LEFT_BACK_ID);
+    rightFront = new WPI_TalonSRX(RobotMap.RIGHT_FRONT_ID);
+    rightBack = new WPI_TalonSRX(RobotMap.RIGHT_BACK_ID);
 
   }
     
