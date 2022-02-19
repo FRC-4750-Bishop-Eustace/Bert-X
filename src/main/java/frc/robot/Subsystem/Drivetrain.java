@@ -34,7 +34,7 @@ public class Drivetrain extends SubsystemBase {
 
   }
     
-  public void JoystickDrive(double moveSpeed, double rotateSpeed){
+  public void joystickDrive(double moveSpeed, double rotateSpeed){
     robotDrive.arcadeDrive(moveSpeed, rotateSpeed);
   }
 

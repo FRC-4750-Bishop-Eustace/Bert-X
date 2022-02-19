@@ -6,16 +6,18 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj2.command.InstantCommand;
+//import edu.wpi.first.wpilibj2.command.InstantCommand;
 
 /** Add your docs here. */
 public class OI {
 
-    public OI(){
-
         //Joysticks
-       public static Joystick driveStick = new Joystick(RobotMap.DRIVESTICK_PORT);
-       public static Joystick controller = new Joystick(RobotMap.CONTROLSTICK_PORT);
+        public static Joystick driveStick = new Joystick(RobotMap.DRIVESTICK_PORT);
+        //public static Joystick controller = new Joystick(RobotMap.CONTROLSTICK_PORT);
+ 
+        //Joystick buttons
+        public static JoystickButton driveMode = new JoystickButton(driveStick, 2);
 
+    public OI(){
     }
 }
