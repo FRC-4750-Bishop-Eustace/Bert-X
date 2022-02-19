@@ -5,11 +5,14 @@
 package frc.robot.Commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.OI;
+import frc.robot.Robot;
 
-public class DriveForward extends CommandBase {
+public class TankDrive extends CommandBase {
   /** Creates a new DriveForward. */
-  public DriveForward() {
+  public TankDrive() {
     // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(Robot.driveTrain);
   }
 
   // Called when the command is initially scheduled.
@@ -18,7 +21,9 @@ public class DriveForward extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    Robot.driveTrain.joystickDrive(OI.driveStick.getY(), OI.driveStick.getThrottle());
+  }
 
   // Called once the command ends or is interrupted.
   @Override
