@@ -14,8 +14,8 @@ public class OI {
     public OI(){
 
         //Joysticks
-       //public static Joystick driveStick = new Joystick(RobotMap.DRIVESTICK_PORT);
-       //public static Joystick controller = new Joystick(RobotMap.CONTROLSTICK_PORT);
+       public static Joystick driveStick = new Joystick(RobotMap.DRIVESTICK_PORT);
+       public static Joystick controller = new Joystick(RobotMap.CONTROLSTICK_PORT);
 
     }
 }

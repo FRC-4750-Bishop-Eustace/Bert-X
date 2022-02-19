@@ -4,6 +4,8 @@
 
 package frc.robot.Subsystem;
 
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -13,6 +15,10 @@ public class Drivetrain extends SubsystemBase {
 
     //create motors
     public WPI_TalonSRX leftFront, leftBack, rightFront, rightBack;
+    //create drive
+    DifferentialDrive robotDrive = null;
+    MotorControllerGroup leftMotors = null;
+    MotorControllerGroup rightMotors = null; 
 
   public Drivetrain() {
     //initialize motors
@@ -21,9 +27,16 @@ public class Drivetrain extends SubsystemBase {
     rightFront = new WPI_TalonSRX(RobotMap.RIGHT_FRONT_ID);
     rightBack = new WPI_TalonSRX(RobotMap.RIGHT_BACK_ID);
 
+    leftMotors = new MotorControllerGroup(leftFront, leftBack);
+    rightMotors = new MotorControllerGroup(rightFront, rightBack); 
+
+    robotDrive = new DifferentialDrive(leftMotors, rightMotors);
+
   }
     
-
+  public void JoystickDrive(double moveSpeed, double rotateSpeed){
+    robotDrive.arcadeDrive(moveSpeed, rotateSpeed);
+  }
 
   @Override
   public void periodic() {
