@@ -9,6 +9,7 @@ public class RobotMap {
   /** Creates a new RobotMap. */
   public RobotMap() {}
 
+  public static final int DRIVESTICK_PORT = 0;
 
 
 }
