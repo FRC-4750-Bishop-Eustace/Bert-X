@@ -27,6 +27,7 @@ public class Robot extends TimedRobot {
   private static final String kDefaultAuto = "Default";
   private static final String kCustomAuto = "My Auto";
   private String m_autoSelected;
+  private String m_teleopSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
   /**
@@ -98,6 +99,9 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopInit() {
     //driveTrain.reset();
+    m_teleopSelected = m_chooser.getSelected();
+    // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
+    System.out.println("TeleOp selected: " + m_teleopSelected);
   }
 
   /** This function is called periodically during operator control. */
