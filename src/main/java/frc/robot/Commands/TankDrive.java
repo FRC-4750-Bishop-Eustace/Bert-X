@@ -29,11 +29,13 @@ public class TankDrive extends Command [
       }
     } else {
       if(!Robot.driveTrain.slowMode()){
+      // This will tell the robot to stop reverse mode but keep slowmode on
       Robot.driveTrain.joystickDrive(OI.driveStick.getY() / 2, OI.driveStick.getThrottle() / 3);
-     // System.out.println("slowMode is on and reverse if off");
+      System.out.println("slowMode is on and reverse is off");
       } else {
+        // this will tell the robot to stop reverse mode
         Robot.driveTrain.joystickDrive(OI.driveStick.getY(), OI.driveStick.getThrottle());
-       // System.out.println("reverse is off");
+        System.out.println("reverse is off");
       }
     }
   }
