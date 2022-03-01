@@ -33,6 +33,7 @@ public class OI {
     public static Joystick controller = new Joystick(RobotMap.CONTROLSTICK_PORT);
     
     //JOYSTICK BUTTONS
+    // each number is assigned to a button on the joystick or controller. In this code we assign that number to an action for the shooter.
     JoystickButton toggleDirection = new JoystickButton(driveStick, 3);
     //JoystickButton shootButton = new JoystickButton(driveStick, 6);
    // JoystickButton stopShooting = new JoystickButton(driveStick, 5);
@@ -52,6 +53,7 @@ public class OI {
     
     public OI(){
         //buttons on the drivestick
+        // this is the code for the driver joystick.
         toggle Direction.whenReleased(new ReverseDriveTrain());
         slowDriveMode.whenReleased(new SlowModeDriveTrain());
         //shootButton.whenPressed(new ShootEnable());
