@@ -5,27 +5,10 @@
 package frc.robot.Subsystem;
 
 import edu.wpi.first.wpilibj2.command.Subsystem;
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Commands.TankDrive;
 
 public class Drivetrain implements Subsystem {
-  
-  private boolean _isReversed;
-  private boolean _isSlowMode;
 
-  public boolean getReversed(){
-    return _isReversed;
-  }
-  public void setReversed(boolean value){
-    _isReversed = value;
-  }
-  public boolean getSlowMode(){
-    return _isSlowMode;
-  }
-  public void setSlowMode(boolean value){
-    _isSlowMode = value;
-  }
-  
 
   /** Creates a new Drivetrain. */
   public Drivetrain() { 
