@@ -5,9 +5,10 @@
 package frc.robot.Subsystem;
 
 import edu.wpi.first.wpilibj2.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Commands.TankDrive;
 
-public class Drivetrain implements Subsystem {
+public class Drivetrain extends SubsystemBase {
 
 
   /** Creates a new Drivetrain. */

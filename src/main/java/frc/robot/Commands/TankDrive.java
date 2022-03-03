@@ -1,20 +1,22 @@
 package frc.robot.Commands;
 
-//import java.lang.module.ModuleDescriptor.Requires;
-import java.util.HashSet;
-import java.util.Set;
+import java.lang.module.ModuleDescriptor.Requires;
+//import java.util.HashSet;
+//import java.util.Set;
 
-//import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.robot.OI;
 import frc.robot.Robot;
 
 // Drives the drive train with a joystick
 
-public class TankDrive implements Command{
+public class TankDrive extends CommandBase{
   
   public TankDrive() {
+    addRequirements(Robot.driveTrain);
   }
   
   @Override
@@ -37,12 +39,12 @@ public class TankDrive implements Command{
     return false;
   }
 
-  @Override
-  public Set<Subsystem> getRequirements() {
-    HashSet<Subsystem> reqs = new HashSet<Subsystem>();
-    reqs.add(Robot.driveTrain);
-    return reqs;
-  }
+  // @Override
+  // public Set<Subsystem> getRequirements() {
+  //   HashSet<Subsystem> reqs = new HashSet<Subsystem>();
+  //   reqs.add(Robot.driveTrain);
+  //   return reqs;
+  // }
 
   
  }
