@@ -10,10 +10,11 @@ import frc.robot.Commands.TankDrive;
 
 public class Drivetrain extends SubsystemBase {
 
-
   /** Creates a new Drivetrain. */
   public Drivetrain() { 
-    setDefaultCommand(new TankDrive());
+    System.out.println("!!! new drivetrain.");
+    // setDefaultCommand(new TankDrive());       //This code throws a nullref because there's circular constructor calls
+    // System.out.println("!!! drivetrain successfully instantiated.");
   }
 
   @Override
