@@ -11,6 +11,6 @@ public class OI {
     public static Joystick driveStick = new Joystick(RobotMap.DRIVESTICK_PORT);
 
     public OI(){
-
+        
     }
 }
