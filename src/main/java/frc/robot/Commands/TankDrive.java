@@ -10,17 +10,22 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.robot.OI;
 import frc.robot.Robot;
+import frc.robot.Subsystem.Drivetrain;
 
 // Drives the drive train with a joystick
 
 public class TankDrive extends CommandBase{
   
-  public TankDrive() {
-    addRequirements(Robot.driveTrain);
+  public TankDrive(Drivetrain dtrain) {
+    System.out.println("!!! new tankdrive");
+    addRequirements(dtrain);
+    System.out.println("!!! tankdrive finished initializing");
   }
   
   @Override
   public void execute() {
+
+    System.out.println("Execute tankdrive command");
 
     // double speed = OI.driveStick.getY();
     // double rotation = OI.driveStick.getThrottle();
@@ -35,6 +40,7 @@ public class TankDrive extends CommandBase{
   
   @Override
   public boolean isFinished() {
+    // System.out.println("check for isfinished");
     // Never finish
     return false;
   }

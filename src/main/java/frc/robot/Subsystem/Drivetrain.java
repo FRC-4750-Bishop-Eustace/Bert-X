@@ -13,6 +13,7 @@ public class Drivetrain extends SubsystemBase {
   /** Creates a new Drivetrain. */
   public Drivetrain() { 
     System.out.println("!!! new drivetrain.");
+    setDefaultCommand(new TankDrive(this));
     // setDefaultCommand(new TankDrive());       //This code throws a nullref because there's circular constructor calls
     // System.out.println("!!! drivetrain successfully instantiated.");
   }
@@ -23,6 +24,6 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public void joystickDrive(double speed, double rotation){
-    System.out.println(String.format("Joystick movement with speed $s and rotation %s.", speed, rotation));
+    System.out.println(String.format("Joystick movement with speed %s and rotation %s.", speed, rotation));
   }
 }
