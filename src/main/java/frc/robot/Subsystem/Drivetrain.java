@@ -5,7 +5,7 @@
 package frc.robot.Subsystem;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-//import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -20,11 +20,12 @@ public class Drivetrain extends SubsystemBase {
       //public WPI_TalonSRX leftFront, leftBack, rightFront, rightBack;
 
       //create drive
-      DifferentialDrive robotDriveLeft = null;
-      DifferentialDrive robotDriveRight = null;
-      
-      //MotorControllerGroup leftMotors = null;
-      //MotorControllerGroup rightMotors = null; 
+      //DifferentialDrive robotDriveLeft = null;
+      //DifferentialDrive robotDriveRight = null;
+      DifferentialDrive robotDrive = null;
+
+      MotorControllerGroup leftMotors = null;
+      MotorControllerGroup rightMotors = null; 
       WPI_TalonSRX leftFront = null;
       WPI_TalonSRX rightFront = null; 
       WPI_TalonSRX leftBack = null;
@@ -44,12 +45,13 @@ public class Drivetrain extends SubsystemBase {
     rightBack = new WPI_TalonSRX(RobotMap.RIGHT_BACK_ID);
     System.out.println("This works :)");
 
-    //leftMotors = new MotorControllerGroup(leftFront, leftBack);
-    //rightMotors = new MotorControllerGroup(rightFront, rightBack); 
+    leftMotors = new MotorControllerGroup(leftFront, leftBack);
+    rightMotors = new MotorControllerGroup(rightFront, rightBack); 
 
-    //robotDrive = new DifferentialDrive(leftMotors, rightMotors);
-    robotDriveLeft = new DifferentialDrive(leftFront, leftBack);
-    robotDriveRight = new DifferentialDrive(rightFront, rightBack);
+    robotDrive = new DifferentialDrive(leftMotors, rightMotors);
+    //robotDriveLeft = new DifferentialDrive(leftFront, leftBack);
+    //robotDriveRight = new DifferentialDrive(rightFront, rightBack);
+  
     
 
     //inverts the left side to drive
@@ -72,8 +74,9 @@ public class Drivetrain extends SubsystemBase {
     System.out.println(String.format("Joystick movement with speed %s and rotation %s.", speed, rotation));
     System.out.println("the right motor is doing stuff, " + rightFront.get() );
     System.out.println("the left motor is doing stuff, " + leftFront.get() );
-    robotDriveLeft.arcadeDrive(cube(speed), cube(rotation));
-    robotDriveRight.arcadeDrive(cube(speed), cube(rotation));
+    //robotDriveLeft.arcadeDrive(cube(speed), cube(rotation));
+    //robotDriveRight.arcadeDrive(cube(speed), cube(rotation));
+    robotDrive.arcadeDrive(cube(speed), cube(rotation));
 
     System.out.println("right front is " + rightFront.isAlive());
     System.out.println("right back is " + rightBack.isAlive());
