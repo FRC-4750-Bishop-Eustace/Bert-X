@@ -76,7 +76,7 @@ public class Drivetrain extends SubsystemBase {
     robotDriveRight.arcadeDrive(cube(speed), cube(rotation));
 
     System.out.println("right front is " + rightFront.isAlive());
-    System.out.println("right front is " + rightBack.isAlive());
+    System.out.println("right back is " + rightBack.isAlive());
 
   }
 
