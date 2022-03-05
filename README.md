@@ -11,8 +11,10 @@ Updating your branch with changes from Master --
 7. 'git fetch' -- updates all branches from remote repository
 8. 'git pull' -- updates master with any changes from the remote repository
 9. 'git checkout <your branch name>' -- switches to your branch
-10.'git merge master' this will merge master into your branch
-11.'git status' -- if everything is up to date this will let you know, if there are more issues reach our to Mr. Carlin or Mr. Monari
+
+  10.'git merge master' this will merge master into your branch
+
+  11.'git status' -- if everything is up to date this will let you know, if there are more issues reach our to Mr. Carlin or Mr. Monari
 
 
 Git Commands
