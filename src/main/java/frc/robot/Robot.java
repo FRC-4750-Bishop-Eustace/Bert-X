@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj.DriverStation;
 import frc.robot.Subsystem.Drivetrain;
+//import frc.robot.OI;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -40,7 +41,9 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
-  }
+    System.out.println("Robot Init");
+
+    }
 
   /**
    * This function is called every robot packet, no matter the mode. Use this for
@@ -107,6 +110,7 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
+    driveTrain.joystickDrive(-OI.driveStick.getY(), OI.driveStick.getX());
   }
 
   /** This function is called once when the robot is disabled. */

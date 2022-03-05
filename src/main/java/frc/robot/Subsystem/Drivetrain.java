@@ -5,7 +5,7 @@
 package frc.robot.Subsystem;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+//import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -16,15 +16,22 @@ public class Drivetrain extends SubsystemBase {
 
   /** Creates a new Drivetrain. */
 
-    //create motors
-    public WPI_TalonSRX leftFront, leftBack, rightFront, rightBack;
-    //create drive
-    DifferentialDrive robotDrive = null;
-    MotorControllerGroup leftMotors = null;
-    MotorControllerGroup rightMotors = null; 
+      //create motors
+      //public WPI_TalonSRX leftFront, leftBack, rightFront, rightBack;
 
-  public Drivetrain() {
+      //create drive
+      DifferentialDrive robotDriveLeft = null;
+      DifferentialDrive robotDriveRight = null;
+      
+      //MotorControllerGroup leftMotors = null;
+      //MotorControllerGroup rightMotors = null; 
+      WPI_TalonSRX leftFront = null;
+      WPI_TalonSRX rightFront = null; 
+      WPI_TalonSRX leftBack = null;
+      WPI_TalonSRX rightBack = null; 
+  
 
+  public Drivetrain() { 
     System.out.println("!!! new drivetrain.");
     setDefaultCommand(new TankDrive(this));
     // setDefaultCommand(new TankDrive());       //This code throws a nullref because there's circular constructor calls
@@ -37,13 +44,22 @@ public class Drivetrain extends SubsystemBase {
     rightBack = new WPI_TalonSRX(RobotMap.RIGHT_BACK_ID);
     System.out.println("This works :)");
 
-    leftMotors = new MotorControllerGroup(leftFront, leftBack);
-    rightMotors = new MotorControllerGroup(rightFront, rightBack); 
+    //leftMotors = new MotorControllerGroup(leftFront, leftBack);
+    //rightMotors = new MotorControllerGroup(rightFront, rightBack); 
 
-    robotDrive = new DifferentialDrive(leftMotors, rightMotors);
+    //robotDrive = new DifferentialDrive(leftMotors, rightMotors);
+    robotDriveLeft = new DifferentialDrive(leftFront, leftBack);
+    robotDriveRight = new DifferentialDrive(rightFront, rightBack);
+    
+
+    //inverts the left side to drive
+    rightFront.setInverted(true);
+    rightBack.setInverted(true);
 
     // Stop "output not updated often enough" error from printing
-    robotDrive.setSafetyEnabled(false); 
+    //robotDriveLeft.setSafetyEnabled(false);
+    //robotDriveRight.setSafetyEnabled(false);
+    //System.out.println("After safety enabled false"); 
 
   }
 
@@ -53,8 +69,15 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public void joystickDrive(double speed, double rotation){
-    //System.out.println(String.format("Joystick movement with speed %s and rotation %s.", speed, rotation));
-    robotDrive.arcadeDrive(cube(speed), cube(rotation));
+    System.out.println(String.format("Joystick movement with speed %s and rotation %s.", speed, rotation));
+    System.out.println("the right motor is doing stuff, " + rightFront.get() );
+    System.out.println("the left motor is doing stuff, " + leftFront.get() );
+    robotDriveLeft.arcadeDrive(cube(speed), cube(rotation));
+    robotDriveRight.arcadeDrive(cube(speed), cube(rotation));
+
+    System.out.println("right front is " + rightFront.isAlive());
+    System.out.println("right front is " + rightBack.isAlive());
+
   }
 
      /**
@@ -85,6 +108,11 @@ public class Drivetrain extends SubsystemBase {
  
   protected double cube(double value) {
     return 0.2 * Math.pow(value, 3) + (1 - 0.2) * value;
+
+}
+
+protected double square(double value) {
+  return 0.2 * Math.pow(value, 2) + (1 - 0.2) * value;
 
 }
 }
