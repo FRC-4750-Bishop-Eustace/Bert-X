@@ -4,29 +4,27 @@
 
 package frc.robot.Subsystem;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
-//import edu.wpi.first.wpilibj2.command.Subsystem;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+//import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.robot.Commands.TankDrive;
 
 public class Drivetrain extends SubsystemBase {
 
   /** Creates a new Drivetrain. */
 
-      //create motors
-      public WPI_TalonSRX leftFront, leftBack, rightFront, rightBack;
+    //create motors
+    public WPI_TalonSRX leftFront, leftBack, rightFront, rightBack;
+    //create drive
+    DifferentialDrive robotDrive = null;
+    MotorControllerGroup leftMotors = null;
+    MotorControllerGroup rightMotors = null; 
 
-      //create drive
-      DifferentialDrive robotDrive = null;
-      MotorControllerGroup leftMotors = null;
-      MotorControllerGroup rightMotors = null; 
-  
+  public Drivetrain() {
 
-  public Drivetrain() { 
     System.out.println("!!! new drivetrain.");
     setDefaultCommand(new TankDrive(this));
     // setDefaultCommand(new TankDrive());       //This code throws a nullref because there's circular constructor calls
@@ -56,7 +54,37 @@ public class Drivetrain extends SubsystemBase {
 
   public void joystickDrive(double speed, double rotation){
     //System.out.println(String.format("Joystick movement with speed %s and rotation %s.", speed, rotation));
+    robotDrive.arcadeDrive(cube(speed), cube(rotation));
   }
 
+     /**
+     * Turns the drive train
+     * 
+     * @param speed + is right, - is left
+     */
 
+ /*   
+    public void turn(double speed) {
+      robotDrive.arcadeDrive(0, -speed);
+  }
+ */
+
+  /**
+     * Brakes all motors on the drive train
+     */
+
+    
+    public void brake() {
+      leftFront.stopMotor();
+      rightFront.stopMotor();
+  }
+ 
+  /**
+     * Desensitizes the joystick values at low speeds
+     */
+ 
+  protected double cube(double value) {
+    return 0.2 * Math.pow(value, 3) + (1 - 0.2) * value;
+
+}
 }
