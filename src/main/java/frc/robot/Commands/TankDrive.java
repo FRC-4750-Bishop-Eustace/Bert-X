@@ -1,37 +1,57 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
-
 package frc.robot.Commands;
 
+//import java.lang.module.ModuleDescriptor.Requires;
+//import java.util.HashSet;
+//import java.util.Set;
+
+//import edu.wpi.first.wpilibj.DriverStation;
+//import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+//import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.robot.OI;
 import frc.robot.Robot;
+import frc.robot.Subsystem.Drivetrain;
 
-public class TankDrive extends CommandBase {
-  /** Creates a new DriveForward. */
-  public TankDrive() {
-    // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.driveTrain);
+// Drives the drive train with a joystick
+
+public class TankDrive extends CommandBase{
+  
+  public TankDrive(Drivetrain dtrain) {
+    System.out.println("!!! new tankdrive");
+    addRequirements(dtrain);
+    System.out.println("!!! tankdrive finished initializing");
   }
-
-  // Called when the command is initially scheduled.
-  @Override
-  public void initialize() {}
-
-  // Called every time the scheduler runs while the command is scheduled.
+  
   @Override
   public void execute() {
-    Robot.driveTrain.joystickDrive(OI.driveStick.getY(), OI.driveStick.getThrottle());
+
+    System.out.println("Execute tankdrive command");
+
+    // double speed = OI.driveStick.getY();
+    // double rotation = OI.driveStick.getThrottle();
+    // if (!Robot.driveTrain.getReversed()){
+    //   speed = -speed;
+    // }
+    // if (
+
+    // Pass the joystick values to joystickDrive()
+        Robot.driveTrain.joystickDrive(OI.driveStick.getY(), OI.driveStick.getThrottle());
   }
-
-  // Called once the command ends or is interrupted.
-  @Override
-  public void end(boolean interrupted) {}
-
-  // Returns true when the command should end.
+  
   @Override
   public boolean isFinished() {
+    // System.out.println("check for isfinished");
+    // Never finish
     return false;
   }
-}
+
+  // @Override
+  // public Set<Subsystem> getRequirements() {
+  //   HashSet<Subsystem> reqs = new HashSet<Subsystem>();
+  //   reqs.add(Robot.driveTrain);
+  //   return reqs;
+  // }
+
+  
+ }
+    

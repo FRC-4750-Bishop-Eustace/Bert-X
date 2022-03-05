@@ -9,8 +9,11 @@ import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+//import edu.wpi.first.wpilibj2.command.Subsystem;
+import frc.robot.Commands.TankDrive;
 
 public class Drivetrain extends SubsystemBase {
+
   /** Creates a new Drivetrain. */
 
     //create motors
@@ -21,25 +24,67 @@ public class Drivetrain extends SubsystemBase {
     MotorControllerGroup rightMotors = null; 
 
   public Drivetrain() {
+
+    System.out.println("!!! new drivetrain.");
+    setDefaultCommand(new TankDrive(this));
+    // setDefaultCommand(new TankDrive());       //This code throws a nullref because there's circular constructor calls
+    // System.out.println("!!! drivetrain successfully instantiated.");
+
     //initialize motors
     leftFront = new WPI_TalonSRX(RobotMap.LEFT_FRONT_ID);
     leftBack = new WPI_TalonSRX(RobotMap.LEFT_BACK_ID);
     rightFront = new WPI_TalonSRX(RobotMap.RIGHT_FRONT_ID);
     rightBack = new WPI_TalonSRX(RobotMap.RIGHT_BACK_ID);
+    System.out.println("This works :)");
 
     leftMotors = new MotorControllerGroup(leftFront, leftBack);
     rightMotors = new MotorControllerGroup(rightFront, rightBack); 
 
     robotDrive = new DifferentialDrive(leftMotors, rightMotors);
 
-  }
-    
-  public void joystickDrive(double moveSpeed, double rotateSpeed){
-    robotDrive.arcadeDrive(moveSpeed, rotateSpeed);
+    // Stop "output not updated often enough" error from printing
+    robotDrive.setSafetyEnabled(false); 
+
   }
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
   }
+
+  public void joystickDrive(double speed, double rotation){
+    //System.out.println(String.format("Joystick movement with speed %s and rotation %s.", speed, rotation));
+    robotDrive.arcadeDrive(cube(speed), cube(rotation));
+  }
+
+     /**
+     * Turns the drive train
+     * 
+     * @param speed + is right, - is left
+     */
+
+ /*   
+    public void turn(double speed) {
+      robotDrive.arcadeDrive(0, -speed);
+  }
+ */
+
+  /**
+     * Brakes all motors on the drive train
+     */
+
+    
+    public void brake() {
+      leftFront.stopMotor();
+      rightFront.stopMotor();
+  }
+ 
+  /**
+     * Desensitizes the joystick values at low speeds
+     */
+ 
+  protected double cube(double value) {
+    return 0.2 * Math.pow(value, 3) + (1 - 0.2) * value;
+
+}
 }
