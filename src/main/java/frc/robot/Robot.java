@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Subsystem.Drivetrain;
-import frc.subsystems.DriveTrain;
 
 
 /**
@@ -25,7 +24,6 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static DriveTrain driveTrain = new DriveTrain();
 
-  public static Drivetrain driveTrain = new Drivetrain();
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -62,7 +60,7 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousInit() {
     m_autoSelected = m_chooser.getSelected();
-    m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
+    //m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
     System.out.println("Auto selected: " + m_autoSelected);
    // driveTrain.resetLeftEncoder();
   }
@@ -84,7 +82,7 @@ public class Robot extends TimedRobot {
   /** This function is called once when teleop is enabled. */
   @Override
   public void teleopInit() {
-  driveTrain.reset();
+ // driveTrain.reset();
   }
 
   /** This function is called periodically during operator control. */
