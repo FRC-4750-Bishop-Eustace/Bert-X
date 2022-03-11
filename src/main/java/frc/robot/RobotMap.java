@@ -7,8 +7,7 @@ package frc.robot;
 
 public class RobotMap {
   /** Creates a new RobotMap. */
-  public RobotMap() {}
-
+  
   //Joystick ports (usb)
   public static final int DRIVESTICK_PORT = 0;
   //public static final int CONTROLSTICK_PORT = 1;
