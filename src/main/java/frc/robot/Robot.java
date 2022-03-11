@@ -96,6 +96,8 @@ public class Robot extends TimedRobot {
         // Put default auto code here
         break;
     }
+
+    driveTrain.joystickDrive(0.5 , 0);
   }
 
   /** This function is called once when teleop is enabled. */
