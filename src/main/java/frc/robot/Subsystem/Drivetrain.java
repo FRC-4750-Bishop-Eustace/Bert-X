@@ -56,7 +56,7 @@ public class Drivetrain extends SubsystemBase {
     //inverts the left side to drive
     //rightFront.setInverted(true);
     //rightBack.setInverted(true);
-    //rightMotors.setInverted(true);
+    rightMotors.setInverted(true);
     
 
     // Stop "output not updated often enough" error from printing
@@ -108,11 +108,11 @@ public class Drivetrain extends SubsystemBase {
      */
 
     
-  /*  public void brake() {
+    public void brake() {
       leftFront.stopMotor();
       rightFront.stopMotor();
   }
-  */
+  
  
   /**
      * Desensitizes the joystick values at low speeds
