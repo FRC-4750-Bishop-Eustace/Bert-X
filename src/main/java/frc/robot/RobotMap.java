@@ -7,17 +7,16 @@ package frc.robot;
 
 public class RobotMap {
   /** Creates a new RobotMap. */
-  public RobotMap() {}
-
+  
   //Joystick ports (usb)
   public static final int DRIVESTICK_PORT = 0;
   //public static final int CONTROLSTICK_PORT = 1;
 
     //Drivetrain motors ID (Cans)
-    public static final int LEFT_FRONT_ID = 0;
-    public static final int LEFT_BACK_ID = 1;
-    public static final int RIGHT_FRONT_ID = 14;
-    public static final int RIGHT_BACK_ID = 15;
+    public static final int LEFT_FRONT_ID = 14;
+    public static final int LEFT_BACK_ID = 15;
+    public static final int RIGHT_FRONT_ID = 2;
+    public static final int RIGHT_BACK_ID = 1;
     
 
 
