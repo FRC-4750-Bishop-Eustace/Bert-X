@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Subsystem.Drivetrain;
+import edu.wpi.first.cameraserver.CameraServer;
 
 
 /**
@@ -44,6 +45,8 @@ public class Robot extends TimedRobot {
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
     System.out.println("Robot Init");
+
+    CameraServer.startAutomaticCapture();
 
     }
 
@@ -147,4 +150,8 @@ public class Robot extends TimedRobot {
   @Override
   public void simulationPeriodic() {
   }
+
+ 
+
+
 }
