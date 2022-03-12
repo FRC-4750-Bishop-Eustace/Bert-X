@@ -28,13 +28,16 @@ public class Drivetrain extends SubsystemBase {
 
   public Drivetrain() { 
     System.out.println("!!! new drivetrain.");
-    setDefaultCommand(new TankDrive(this));
+    
+    //Comment out this line to disable the drive train.
+    // setDefaultCommand(new TankDrive(this));
+    
     // setDefaultCommand(new TankDrive());       //This code throws a nullref because there's circular constructor calls
     // System.out.println("!!! drivetrain successfully instantiated.");
 
     //initialize motors
     leftFront = new WPI_TalonSRX(RobotMap.LEFT_FRONT_ID);
-    leftBack = new WPI_TalonSRX(RobotMap.LEFT_BACK_ID);
+    //leftBack = new WPI_TalonSRX(RobotMap.LEFT_BACK_ID);
     rightFront = new WPI_TalonSRX(RobotMap.RIGHT_FRONT_ID);
     rightBack = new WPI_TalonSRX(RobotMap.RIGHT_BACK_ID);
     System.out.println("This works :)");
@@ -45,7 +48,7 @@ public class Drivetrain extends SubsystemBase {
     robotDrive = new DifferentialDrive(leftMotors, rightMotors);
 
     // Stop "output not updated often enough" error from printing
-    robotDrive.setSafetyEnabled(false); 
+    // robotDrive.setSafetyEnabled(false); 
 
   }
 

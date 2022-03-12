@@ -15,8 +15,7 @@ import frc.robot.Commands.ReverseSystems;
 public class OI {
 
     public static Joystick driveStick = new Joystick(RobotMap.DRIVESTICK_PORT);
-    // public static Joystick controller = new Joystick(RobotMap.CONTROLSTICK_PORT);
-    public static Joystick controller = new Joystick(0);
+    public static Joystick controller = new Joystick(RobotMap.CONTROLSTICK_PORT);
 
     //The intake wheel will spin if and only if this button is held.
     JoystickButton intakeButton = new JoystickButton(controller, RobotMap.INTAKE_BUTTON_ID);
