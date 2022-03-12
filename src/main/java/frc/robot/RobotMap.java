@@ -11,7 +11,7 @@ public class RobotMap {
 
   //Joystick ports (usb)
   public static final int DRIVESTICK_PORT = 0;
-  //public static final int CONTROLSTICK_PORT = 1;
+  public static final int CONTROLSTICK_PORT = 1;
 
     //Drivetrain motors ID (CAN IDs)
     public static final int LEFT_FRONT_ID = 0;
@@ -20,7 +20,10 @@ public class RobotMap {
     public static final int RIGHT_BACK_ID = 15;
     
     //Intake motor ID
-    public static final int INTAKE_MOTOR_ID = -1;
+    public static final int INTAKE_MOTOR_ID = 15;
 
+    //Joystick Button IDs
+    public static final int INTAKE_BUTTON_ID = -1;
+    public static final int REVERSE_SYSTEMS_BUTTON_ID = -1;
 
 }

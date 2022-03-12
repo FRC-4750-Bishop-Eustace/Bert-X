@@ -33,11 +33,17 @@ public class Intake extends SubsystemBase{
         _isRunning = false;
         intakeMotor.stopMotor();
     }
-    public void runReverse(){
+    /**
+     * Reverses the intake wheel.
+     * @return Returns true if the operation was successful.
+     */
+    public boolean runReverse(){
         if (!_isRunning || _allowImmediateReversing){
             _isRunning = true;
             intakeMotor.set(-intakeSpeed);
+            return true;
         }
+        return false;
 
     }
 }

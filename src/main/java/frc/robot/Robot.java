@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Subsystem.Drivetrain;
+import frc.robot.Subsystem.Intake;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -24,7 +25,7 @@ public class Robot extends TimedRobot {
 
   //Subsystems
   public static Drivetrain driveTrain = new Drivetrain();
-  public static Intake intake = new Intake();  
+  public static Intake intake = new Intake();
 
   /**
    * This function is run when the robot is first started up and should be used for any
