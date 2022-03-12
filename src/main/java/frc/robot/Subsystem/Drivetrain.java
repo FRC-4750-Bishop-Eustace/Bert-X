@@ -80,7 +80,7 @@ public class Drivetrain extends SubsystemBase {
     */
     //robotDriveLeft.arcadeDrive(cube(speed), cube(rotation));
     //robotDriveRight.arcadeDrive(cube(speed), cube(rotation));
-    robotDrive.arcadeDrive(cube(speed), cube(rotation));
+    robotDrive.arcadeDrive(.6 * cube(speed), .6 *  cube(rotation));
     //robotDriveBack.arcadeDrive(cube(speed), cube(rotation));
 
     /*System.out.println("right front is " + rightFront.isAlive());
