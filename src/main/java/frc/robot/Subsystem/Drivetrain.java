@@ -91,18 +91,6 @@ public class Drivetrain extends SubsystemBase {
 
   }
 
-     /**
-     * Turns the drive train
-     * 
-     * @param speed + is right, - is left
-     */
-
- /*   
-    public void turn(double speed) {
-      robotDrive.arcadeDrive(0, -speed);
-  }
- */
-
   /**
      * Brakes all motors on the drive train
      */
