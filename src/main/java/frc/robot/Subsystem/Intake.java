@@ -13,7 +13,7 @@ public class Intake extends SubsystemBase{
     public WPI_TalonSRX intakeMotor;
 
     //The speed at which the motor travels
-    public final double intakeSpeed = +0.1;
+    public final double intakeSpeed = +0.5;
     //If true, then the reverse function will be able to go from spinning normally to spinning reverse. 
     //Doing this would put a ton of torque on the motor.
     private final boolean _allowImmediateReversing = false;
