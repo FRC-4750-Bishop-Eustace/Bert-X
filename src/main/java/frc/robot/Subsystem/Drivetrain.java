@@ -1,65 +1,67 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.Subsystem;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+// // Copyright (c) FIRST and other WPILib contributors.
+// // Open Source Software; you can modify and/or share it under the terms of
+// // the WPILib BSD license file in the root directory of this project.
 
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
-//import edu.wpi.first.wpilibj2.command.Subsystem;
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.RobotMap;
-import frc.robot.Commands.TankDrive;
+// package frc.robot.Subsystem;
 
-public class Drivetrain extends SubsystemBase {
+// import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-  /** Creates a new Drivetrain. */
+// import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+// import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+// //import edu.wpi.first.wpilibj2.command.Subsystem;
+// import edu.wpi.first.wpilibj2.command.SubsystemBase;
+// import frc.robot.RobotMap;
+// import frc.robot.Commands.TankDrive;
 
-      //create motors
-      public WPI_TalonSRX leftFront, leftBack, rightFront, rightBack;
+// public class Drivetrain extends SubsystemBase {
 
-      //create drive
-      DifferentialDrive robotDrive = null;
-      MotorControllerGroup leftMotors = null;
-      MotorControllerGroup rightMotors = null; 
+//   /** Creates a new Drivetrain. */
+
+//       //create motors
+//       public WPI_TalonSRX leftFront, leftBack, rightFront, rightBack;
+
+//       //create drive
+//       DifferentialDrive robotDrive = null;
+//       MotorControllerGroup leftMotors = null;
+//       MotorControllerGroup rightMotors = null; 
   
 
-  public Drivetrain() { 
-    System.out.println("!!! new drivetrain.");
+//   public Drivetrain() { 
+//     System.out.println("!!! new drivetrain.");
     
-    //Comment out this line to disable the drive train.
-    // setDefaultCommand(new TankDrive(this));
+//     //Comment out this line to disable the drive train.
+//     // setDefaultCommand(new TankDrive(this));
     
-    // setDefaultCommand(new TankDrive());       //This code throws a nullref because there's circular constructor calls
-    // System.out.println("!!! drivetrain successfully instantiated.");
+//     // setDefaultCommand(new TankDrive());       //This code throws a nullref because there's circular constructor calls
+//     // System.out.println("!!! drivetrain successfully instantiated.");
 
-    //initialize motors
-    leftFront = new WPI_TalonSRX(RobotMap.LEFT_FRONT_ID);
-    //leftBack = new WPI_TalonSRX(RobotMap.LEFT_BACK_ID);
-    rightFront = new WPI_TalonSRX(RobotMap.RIGHT_FRONT_ID);
-    rightBack = new WPI_TalonSRX(RobotMap.RIGHT_BACK_ID);
-    System.out.println("This works :)");
+//     //initialize motors
+//     leftFront = new WPI_TalonSRX(RobotMap.LEFT_FRONT_ID);
+//     //leftBack = new WPI_TalonSRX(RobotMap.LEFT_BACK_ID);
+//     rightFront = new WPI_TalonSRX(RobotMap.RIGHT_FRONT_ID);
+//     rightBack = new WPI_TalonSRX(RobotMap.RIGHT_BACK_ID);
+//     System.out.println("This works :)");
 
-    leftMotors = new MotorControllerGroup(leftFront, leftBack);
-    rightMotors = new MotorControllerGroup(rightFront, rightBack); 
+//     leftMotors = new MotorControllerGroup(leftFront, leftBack);
+//     rightMotors = new MotorControllerGroup(rightFront, rightBack); 
 
-    robotDrive = new DifferentialDrive(leftMotors, rightMotors);
+//     robotDrive = new DifferentialDrive(leftMotors, rightMotors);
 
-    // Stop "output not updated often enough" error from printing
-    // robotDrive.setSafetyEnabled(false); 
+//     // Stop "output not updated often enough" error from printing
+//     // robotDrive.setSafetyEnabled(false); 
 
-  }
+//   }
 
-  @Override
-  public void periodic() {
-    // This method will be called once per scheduler run
-  }
+//   @Override
+//   public void periodic() {
+//     // This method will be called once per scheduler run
+//   }
 
-  public void joystickDrive(double speed, double rotation){
-    //System.out.println(String.format("Joystick movement with speed %s and rotation %s.", speed, rotation));
-  }
+//   public void joystickDrive(double speed, double rotation){
+//     //System.out.println(String.format("Joystick movement with speed %s and rotation %s.", speed, rotation));
+//   }
 
 
-}
+// }

@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Commands.StartIntake;
 import frc.robot.Commands.StopIntake;
 import frc.robot.Commands.StopSystems;
-import frc.robot.Commands.ReverseIntake;
 import frc.robot.Commands.ReverseSystems;
 
 public class OI {
@@ -23,9 +22,10 @@ public class OI {
 
     public OI(){ 
 
+        System.out.println("init OI");
         intakeButton.whileHeld(new StartIntake());
         intakeButton.whenReleased(new StopIntake());
-
+        
         reverseButton.whileHeld(new ReverseSystems());
         reverseButton.whenReleased(new StopSystems());
     }

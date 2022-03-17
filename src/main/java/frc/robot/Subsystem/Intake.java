@@ -26,6 +26,7 @@ public class Intake extends SubsystemBase{
     }
 
     public void run(){
+        System.out.println("run");
         _isRunning = true;
         intakeMotor.set(intakeSpeed);
     }

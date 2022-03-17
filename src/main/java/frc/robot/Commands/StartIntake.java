@@ -6,6 +6,7 @@ import frc.robot.Robot;
 public class StartIntake extends InstantCommand {
     @Override
     public void initialize(){
+        System.out.println("command ran");
         Robot.intake.run();
     }
 }
