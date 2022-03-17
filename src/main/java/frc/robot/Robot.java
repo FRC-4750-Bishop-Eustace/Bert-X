@@ -23,6 +23,8 @@ public class Robot extends TimedRobot {
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
+  public static OI oi;
+
   //Subsystems
   //public static Drivetrain driveTrain = new Drivetrain();
   public static Intake intake = new Intake();
@@ -34,6 +36,8 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     
+    oi = new OI();
+
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
