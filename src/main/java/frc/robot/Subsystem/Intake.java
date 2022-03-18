@@ -12,37 +12,34 @@ public class Intake extends SubsystemBase{
 
     //The speed at which the motor travels
     public final double intakeSpeed = +0.5;
-    //If true, then the reverse function will be able to go from spinning normally to spinning reverse. 
-    //Doing this would put a ton of torque on the motor.
-    private final boolean _allowImmediateReversing = false;
 
+    //Stores if the intake wheel is running, forward or in reverse.
     private boolean _isRunning = false;
-    
+    public boolean isRunning(){
+        return _isRunning;
+    }
 
     public Intake(){
         intakeMotor = new WPI_TalonSRX(RobotMap.INTAKE_MOTOR_ID);
     }
 
+    //Runs the intake wheel such that a ball can be intaken.
     public void run(){
         System.out.println("run");
         _isRunning = true;
         intakeMotor.set(intakeSpeed);
     }
+
+    //Stops the intake wheel.
     public void stop(){
         _isRunning = false;
         intakeMotor.stopMotor();
     }
     /**
      * Reverses the intake wheel.
-     * @return Returns true if the operation was successful.
      */
-    public boolean runReverse(){
-        if (!_isRunning || _allowImmediateReversing){
-            _isRunning = true;
-            intakeMotor.set(-intakeSpeed);
-            return true;
-        }
-        return false;
-
+    public void runReverse(){
+        _isRunning = true;
+        intakeMotor.set(-intakeSpeed);
     }
 }
