@@ -17,12 +17,5 @@ public class OI {
     JoystickButton reverseButton = new JoystickButton(controller, RobotMap.REVERSE_SYSTEMS_BUTTON_ID);
 
     public OI(){ 
-
-        System.out.println("init OI");
-        intakeButton.whileHeld(new StartIntake());
-        intakeButton.whenReleased(new StopIntake());
-        
-        reverseButton.whileHeld(new ReverseSystems());
-        reverseButton.whenReleased(new StopSystems());
     }
 }
