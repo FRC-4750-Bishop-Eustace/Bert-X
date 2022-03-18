@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-// import frc.robot.Subsystem.Drivetrain;
+import frc.robot.Subsystem.Drivetrain;
 import frc.robot.Subsystem.Intake;
 
 /**
@@ -23,11 +23,11 @@ public class Robot extends TimedRobot {
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
-  public static OI oi;
-
   //Subsystems
-  //public static Drivetrain driveTrain = new Drivetrain();
+  public static Drivetrain driveTrain = new Drivetrain();
   public static Intake intake = new Intake();
+
+  public static OI oi;
 
   /**
    * This function is run when the robot is first started up and should be used for any

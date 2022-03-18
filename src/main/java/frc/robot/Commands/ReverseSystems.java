@@ -6,9 +6,9 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 public class ReverseSystems extends InstantCommand{
     @Override
     public void initialize(){
-        // alongWith(
-        //     new StopIntake()
-        // );
+        alongWith(
+            new ReverseIntake()
+        );
     }
 
 }
