@@ -68,13 +68,7 @@ public class Drivetrain extends SubsystemBase {
     
 
     // Stop "output not updated often enough" error from printing
-<<<<<<< HEAD
     // robotDrive.setSafetyEnabled(false); 
-=======
-    //robotDriveLeft.setSafetyEnabled(false);
-    //robotDriveRight.setSafetyEnabled(false);
-    //System.out.println("After safety enabled false"); 
->>>>>>> master
 
   }
 
