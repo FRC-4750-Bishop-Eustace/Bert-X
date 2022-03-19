@@ -37,7 +37,10 @@ public class Drivetrain extends SubsystemBase {
 
   public Drivetrain() { 
     System.out.println("!!! new drivetrain.");
+    
+    //Comment out this line to disable the drive train.
     setDefaultCommand(new TankDrive(this));
+    
     // setDefaultCommand(new TankDrive());       //This code throws a nullref because there's circular constructor calls
     // System.out.println("!!! drivetrain successfully instantiated.");
 
@@ -67,9 +70,7 @@ public class Drivetrain extends SubsystemBase {
     
 
     // Stop "output not updated often enough" error from printing
-    //robotDriveLeft.setSafetyEnabled(false);
-    //robotDriveRight.setSafetyEnabled(false);
-    //System.out.println("After safety enabled false"); 
+    // robotDrive.setSafetyEnabled(false); 
 
   }
 

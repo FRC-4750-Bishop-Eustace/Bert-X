@@ -6,11 +6,26 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 //import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.Commands.Intake.StartIntake;
+import frc.robot.Commands.Intake.StopIntake;
+
 
 public class OI {
 
     public static Joystick driveStick = new Joystick(RobotMap.DRIVESTICK_PORT);
+    public static Joystick controller = new Joystick(RobotMap.CONTROLSTICK_PORT);
+
+    //The intake wheel will spin if and only if this button is held.
+    JoystickButton intakeButton = new JoystickButton(controller, RobotMap.INTAKE_BUTTON_ID);
+    JoystickButton reverseButton = new JoystickButton(controller, RobotMap.REVERSE_SYSTEMS_BUTTON_ID);
 
     public OI(){ 
+
+        System.out.println("init OI");
+        intakeButton.whileHeld(new StartIntake());
+        intakeButton.whenReleased(new StopIntake());
+        
+        // reverseButton.whileHeld(new ReverseSystems());
+        // reverseButton.whenReleased(new StopSystems());
     }
 }
