@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Subsystem.Drivetrain;
 import edu.wpi.first.cameraserver.CameraServer;
-
+import edu.wpi.first.wpilibj.Timer;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -21,6 +21,8 @@ import edu.wpi.first.cameraserver.CameraServer;
  * build.gradle file in the
  * project.
  */
+
+ 
 public class Robot extends TimedRobot {
 
   // Initialize Subsystems
@@ -31,6 +33,7 @@ public class Robot extends TimedRobot {
   private String m_autoSelected;
   private String m_teleopSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
+  private final Timer m_timer = new Timer();
 
 
   /**
@@ -93,6 +96,8 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during autonomous. */
   @Override
   public void autonomousPeriodic() {
+    // Drive for 2 seconds
+  // stop robot
     switch (m_autoSelected) {
       case kCustomAuto:
         // Put custom auto code here
@@ -110,16 +115,32 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopInit() {
     //driveTrain.reset();
-    m_teleopSelected = m_chooser.getSelected();
+  //  m_teleopSelected = m_chooser.getSelected();
     // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
-    System.out.println("TeleOp selected: " + m_teleopSelected);
+   // System.out.println("TeleOp selected: " + m_teleopSelected);
+   m_timer.reset();
+   m_timer.start();
   }
 
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-    driveTrain.joystickDrive(-OI.driveStick.getY(), OI.driveStick.getX());
+  //  driveTrain.joystickDrive(-OI.driveStick.getY(), OI.driveStick.getX());
+    if (driveTrain.joystickDrive(-OI.driveStick.getY(), OI.driveStick.getX())){
+      m_timer.reset();
+      m_timer.start();
+      if (m_timer.get() < 5.0) {
+        driveTrain.joystickDrive(0.0, 0.0);
+        System.out.println("timer for stop work");
+    } else {
+      m_timer.reset();
+    }
+    //else {
+     // driveTrain.joystickDrive(0.0, 0.0);
+     // System.out.println("stopping timer work");
+    //} // stop robot
   }
+}
 
   /** This function is called once when the robot is disabled. */
   @Override

@@ -15,6 +15,7 @@ import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 
 
+
 public class Drivetrain extends SubsystemBase {
 
   /** Creates a new Drivetrain. */
@@ -31,6 +32,7 @@ public class Drivetrain extends SubsystemBase {
       WPI_TalonSRX rightFront = null; 
       WPI_TalonSRX leftBack = null;
       WPI_TalonSRX rightBack = null;
+      
   
 
   public Drivetrain() { 
@@ -76,7 +78,7 @@ public class Drivetrain extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 
-  public void joystickDrive(double speed, double rotation){
+  public boolean joystickDrive(double speed, double rotation){
     System.out.println(String.format("Joystick movement with speed %s and rotation %s.", speed, rotation));
     /*System.out.println("the front right motor is doing stuff, " + rightFront.get() );
     System.out.println("the front left motor is doing stuff, " + leftFront.get() );
@@ -87,6 +89,7 @@ public class Drivetrain extends SubsystemBase {
     //robotDriveRight.arcadeDrive(cube(speed), cube(rotation));
     robotDrive.arcadeDrive(.6 * cube(speed), .6 *  cube(rotation));
     //robotDriveBack.arcadeDrive(cube(speed), cube(rotation));
+    return false;
 
     /*System.out.println("right front is " + rightFront.isAlive());
     System.out.println("right back is " + rightBack.isAlive());
