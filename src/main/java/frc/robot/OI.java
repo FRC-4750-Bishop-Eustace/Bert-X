@@ -6,8 +6,8 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 //import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.Commands.StartIntake;
-import frc.robot.Commands.StopIntake;
+import frc.robot.Commands.Intake.StartIntake;
+import frc.robot.Commands.Intake.StopIntake;
 import frc.robot.Commands.StopSystems;
 import frc.robot.Commands.ReverseSystems;
 

@@ -20,7 +20,13 @@ public class RobotMap {
     public static final int RIGHT_BACK_ID = 1;
     
     //Intake motor ID
-    public static final int INTAKE_MOTOR_ID = 1;
+    public static final int INTAKE_MOTOR_ID = -1;
+
+    //Belt motor IDs
+    public static final int BELT_1_MOTOR_ID = -1;
+    public static final int BELT_2_MOTOR_ID = -1;
+    
+
 
     //Joystick Button IDs
     public static final int INTAKE_BUTTON_ID = 1;

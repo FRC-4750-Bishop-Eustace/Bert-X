@@ -1,4 +1,4 @@
-package frc.robot.Commands;
+package frc.robot.Commands.Intake;
 
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.Robot;
@@ -9,8 +9,6 @@ import frc.robot.Robot;
 public class ReverseIntake extends InstantCommand {
     @Override
     public void initialize(){
-        if (!Robot.intake.runReverse()){
-            System.out.println("Reverse operation failed. Stop the motor first.");
-        }
+        Robot.intake.runReverse();
     }
 }

@@ -23,8 +23,8 @@ public class Intestines extends SubsystemBase {
     }
 
     public Intestines(){
-        beltMotor_1 = new WPI_TalonSRX(RobotMap.BELT_MOTOR_1_ID);
-        beltMotor_2 = new WPI_TalonSRX(RobotMap.BELT_MOTOR_2_ID);
+        beltMotor_1 = new WPI_TalonSRX(RobotMap.BELT_1_MOTOR_ID);
+        beltMotor_2 = new WPI_TalonSRX(RobotMap.BELT_2_MOTOR_ID);
     }
 
     //Runs the first belt
