@@ -9,11 +9,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Subsystem.Drivetrain;
-<<<<<<< HEAD
-=======
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.Timer;
->>>>>>> Emerson_B
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -94,26 +91,18 @@ public class Robot extends TimedRobot {
 
   /** This function is called once when teleop is enabled. */
   @Override
-<<<<<<< HEAD
-  public void teleopInit() {}
-=======
   public void teleopInit() {
     //driveTrain.reset();
   //  m_teleopSelected = m_chooser.getSelected();
     // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
    // System.out.println("TeleOp selected: " + m_teleopSelected);
    //m_timer.reset();
-  // m_timer.start();
-  }
->>>>>>> Emerson_B
+  // m_timer.start();  
+}
 
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-<<<<<<< HEAD
-    CommandScheduler.getInstance().run();
-  }
-=======
     driveTrain.joystickDrive(-OI.driveStick.getY(), OI.driveStick.getX());
    /** if (driveTrain.joystickDrive(-OI.driveStick.getY(), OI.driveStick.getX())){
       m_timer.reset();
@@ -131,7 +120,6 @@ public class Robot extends TimedRobot {
     */
   
 }
->>>>>>> Emerson_B
 
   /** This function is called once when the robot is disabled. */
   @Override
