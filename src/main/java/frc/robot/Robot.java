@@ -118,15 +118,15 @@ public class Robot extends TimedRobot {
   //  m_teleopSelected = m_chooser.getSelected();
     // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
    // System.out.println("TeleOp selected: " + m_teleopSelected);
-   m_timer.reset();
-   m_timer.start();
+   //m_timer.reset();
+  // m_timer.start();
   }
 
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-  //  driveTrain.joystickDrive(-OI.driveStick.getY(), OI.driveStick.getX());
-    if (driveTrain.joystickDrive(-OI.driveStick.getY(), OI.driveStick.getX())){
+    driveTrain.joystickDrive(-OI.driveStick.getY(), OI.driveStick.getX());
+   /** if (driveTrain.joystickDrive(-OI.driveStick.getY(), OI.driveStick.getX())){
       m_timer.reset();
       m_timer.start();
       if (m_timer.get() < 5.0) {
@@ -139,7 +139,8 @@ public class Robot extends TimedRobot {
      // driveTrain.joystickDrive(0.0, 0.0);
      // System.out.println("stopping timer work");
     //} // stop robot
-  }
+    */
+  
 }
 
   /** This function is called once when the robot is disabled. */
