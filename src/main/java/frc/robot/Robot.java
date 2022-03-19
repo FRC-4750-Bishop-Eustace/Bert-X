@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Subsystem.Drivetrain;
 import frc.robot.Subsystem.Intake;
+import frc.robot.Subsystem.Intestines;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -26,6 +27,7 @@ public class Robot extends TimedRobot {
   //Subsystems
   public static Drivetrain driveTrain = new Drivetrain();
   public static Intake intake = new Intake();
+  public static Intestines intestines = new Intestines();
 
   public static OI oi;
 
