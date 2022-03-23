@@ -109,7 +109,7 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-    driveTrain.joystickDrive(-OI.driveStick.getY(), OI.driveStick.getX());
+    driveTrain.joystickDrive(-OI.driveStick.getY(), OI.driveStick.getThrottle());
    /** if (driveTrain.joystickDrive(-OI.driveStick.getY(), OI.driveStick.getX())){
       m_timer.reset();
       m_timer.start();
