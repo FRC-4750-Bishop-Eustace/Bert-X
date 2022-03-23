@@ -10,6 +10,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Subsystem.Drivetrain;
 import frc.robot.Subsystem.Intake;
+import frc.robot.Subsystem.Intestines;
+import frc.robot.Subsystem.Shooter;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.Timer;
 
@@ -31,6 +33,8 @@ public class Robot extends TimedRobot {
   //Subsystems
   public static Drivetrain driveTrain = new Drivetrain();
   public static Intake intake = new Intake();
+  public static Intestines intestines = new Intestines();
+  public static Shooter shooter = new Shooter();
 
   public static OI oi;
 
