@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Subsystem.Drivetrain;
 import edu.wpi.first.cameraserver.CameraServer;
-
+import edu.wpi.first.wpilibj.Timer;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -31,6 +31,17 @@ public class Robot extends TimedRobot {
   private String m_autoSelected;
   private String m_teleopSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
+  private final Timer m_timer = new Timer();
+  /** 
+  private final Command m_simpleauto = 
+  new DriveDistance(
+    AutoConstants.kAutoDriveDistanceInches, AutoConstants.KAutoDriveSpeed, m_robotDrive);
+
+  private final Command m_complexAuto = new ComplexAuto(m_robotDrive, m_hatchSubsystem);
+
+  SendableChooser<Command> m_chooser = new SendableChooser<>();
+  */
+
 
 
   /**
@@ -84,22 +95,35 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
-    m_autoSelected = m_chooser.getSelected();
+    m_autoSelected = kDefaultAuto;
     //m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
     System.out.println("Auto selected: " + m_autoSelected);
    // driveTrain.resetLeftEncoder();
+   m_timer.reset();
+   m_timer.start();
   }
 
   /** This function is called periodically during autonomous. */
   @Override
   public void autonomousPeriodic() {
+    System.out.println("autonomous works");
     switch (m_autoSelected) {
-      case kCustomAuto:
+ //     case kCustomAuto:
         // Put custom auto code here
-        break;
+
+ //       break;
       case kDefaultAuto:
       default:
         // Put default auto code here
+        System.out.println("switch works");
+        if (m_timer.get() < 2.0) {
+          driveTrain.autonomousDrive(0.5, 0.0);
+          System.out.println("drive works");
+        } else {
+          driveTrain.brake();
+          System.out.println("brake works");
+        }
+
         break;
     }
 
@@ -113,6 +137,9 @@ public class Robot extends TimedRobot {
     m_teleopSelected = m_chooser.getSelected();
     // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
     System.out.println("TeleOp selected: " + m_teleopSelected);
+   // if (m_autonomousCommand != null) {
+   //   m_autonomousCommand.cancel();
+   //}
   }
 
   /** This function is called periodically during operator control. */
