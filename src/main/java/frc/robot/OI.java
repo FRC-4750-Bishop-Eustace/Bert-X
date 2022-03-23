@@ -37,14 +37,14 @@ public class OI {
         intakeButton.whileHeld(new StartIntake());
         intakeButton.whenReleased(new StopIntake());
         
-        shooterButton.whileHeld(new StartShooter());
-        shooterButton.whenReleased(new StopShooter());
+        // shooterButton.whileHeld(new StartShooter());
+        // shooterButton.whenReleased(new StopShooter());
 
-        belt1Button.whileHeld(new RunBeltOne());
-        belt1Button.whenReleased(new StopBeltOne());
+        // belt1Button.whileHeld(new RunBeltOne());
+        // belt1Button.whenReleased(new StopBeltOne());
         
-        belt2Button.whileHeld(new RunBeltTwo());
-        belt2Button.whenReleased(new StopBeltTwo());
+        // belt2Button.whileHeld(new RunBeltTwo());
+        // belt2Button.whenReleased(new StopBeltTwo());
 
 
 
