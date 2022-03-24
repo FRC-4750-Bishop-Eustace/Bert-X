@@ -118,7 +118,7 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-    driveTrain.joystickDrive(-OI.driveStick.getY(), OI.driveStick.getX());
+    driveTrain.joystickDrive(-OI.driveStick.getY(), OI.driveStick.getThrottle());
 
     //Every periodic, we get the status of each button. 
     //If the button is held, run a command, otherwise run a different command.
