@@ -80,7 +80,7 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public boolean joystickDrive(double speed, double rotation){
-    System.out.println(String.format("Joystick movement with speed %s and rotation %s.", speed, rotation));
+    // System.out.println(String.format("Joystick movement with speed %s and rotation %s.", speed, rotation));
     /*System.out.println("the front right motor is doing stuff, " + rightFront.get() );
     System.out.println("the front left motor is doing stuff, " + leftFront.get() );
     System.out.println("the back right motor is doing stuff, " + rightBack.get() );

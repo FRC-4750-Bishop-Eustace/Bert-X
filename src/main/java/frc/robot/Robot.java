@@ -8,12 +8,21 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.Commands.Intake.StartIntake;
+import frc.robot.Commands.Intake.StopIntake;
+import frc.robot.Commands.Intestines.RunBeltOne;
+import frc.robot.Commands.Intestines.RunBeltTwo;
+import frc.robot.Commands.Intestines.StopBeltOne;
+import frc.robot.Commands.Intestines.StopBeltTwo;
+import frc.robot.Commands.Shooter.StartShooter;
+import frc.robot.Commands.Shooter.StopShooter;
 import frc.robot.Subsystem.Drivetrain;
 import frc.robot.Subsystem.Intake;
 import frc.robot.Subsystem.Intestines;
 import frc.robot.Subsystem.Shooter;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -109,6 +118,7 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
+<<<<<<< HEAD
     driveTrain.joystickDrive(-OI.driveStick.getY(), OI.driveStick.getThrottle());
    /** if (driveTrain.joystickDrive(-OI.driveStick.getY(), OI.driveStick.getX())){
       m_timer.reset();
@@ -118,12 +128,47 @@ public class Robot extends TimedRobot {
         System.out.println("timer for stop work");
     } else {
       m_timer.reset();
+=======
+    driveTrain.joystickDrive(-OI.driveStick.getY(), OI.driveStick.getX());
+
+    //Every periodic, we get the status of each button. 
+    //If the button is held, run a command, otherwise run a different command.
+
+    //Actually schedules and runs the commands.
+    CommandScheduler cmdScheduler = CommandScheduler.getInstance();
+
+    //If the intake button is held, run StartIntake, otherwise run StopIntake.
+    if (oi.intakeButton.get()){
+      cmdScheduler.schedule(new StartIntake());
     }
-    //else {
-     // driveTrain.joystickDrive(0.0, 0.0);
-     // System.out.println("stopping timer work");
-    //} // stop robot
-    */
+    else{
+      cmdScheduler.schedule(new StopIntake());
+    }
+
+    //If the Belt 1 button is held, run RunBeltOne, otherwise run StopBeltOne
+    if (oi.belt1Button.get()){
+      cmdScheduler.schedule(new RunBeltOne());
+    }
+    else{
+      cmdScheduler.schedule(new StopBeltOne());
+    }
+
+    //If the Belt 2 button is held, run RunBeltTwo, otherwise run StopBeltTwo
+    if (oi.belt2Button.get()){
+      cmdScheduler.schedule(new RunBeltTwo());
+    }
+    else {
+      cmdScheduler.schedule(new StopBeltTwo());
+    }
+
+    //If the shooter button is held, run StartShooter, otherwise run StopShooter
+    if (oi.shooterButton.get()){
+      cmdScheduler.schedule(new StartShooter());
+    }
+    else{
+      cmdScheduler.schedule(new StopShooter());
+>>>>>>> 124895a48d74a1ea87f53d17f8963af3328b684e
+    }
   
 }
 

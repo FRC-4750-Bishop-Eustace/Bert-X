@@ -23,19 +23,19 @@ public class OI {
     public static Joystick controller = new Joystick(RobotMap.CONTROLSTICK_PORT);
 
     //The intake wheel will spin if and only if this button is held.
-    JoystickButton intakeButton = new JoystickButton(controller, RobotMap.INTAKE_BUTTON_ID);
-    JoystickButton shooterButton = new JoystickButton(controller, RobotMap.SHOOTER_HEAD_BUTTON_ID);
+    public JoystickButton intakeButton = new JoystickButton(controller, RobotMap.INTAKE_BUTTON_ID);
+    public JoystickButton shooterButton = new JoystickButton(controller, RobotMap.SHOOTER_HEAD_BUTTON_ID);
 
-    JoystickButton belt1Button = new JoystickButton(controller, RobotMap.BELT_1_BUTTON_ID);
-    JoystickButton belt2Button = new JoystickButton(controller, RobotMap.BELT_2_BUTTON_ID);
+    public JoystickButton belt1Button = new JoystickButton(controller, RobotMap.BELT_1_BUTTON_ID);
+    public JoystickButton belt2Button = new JoystickButton(controller, RobotMap.BELT_2_BUTTON_ID);
 
     // JoystickButton reverseButton = new JoystickButton(controller, RobotMap.REVERSE_SYSTEMS_BUTTON_ID);
 
     public OI(){ 
 
         System.out.println("init OI");
-        intakeButton.whileHeld(new StartIntake());
-        intakeButton.whenReleased(new StopIntake());
+        // intakeButton.whileHeld(new StartIntake());
+        // intakeButton.whenReleased(new StopIntake());
         
         // shooterButton.whileHeld(new StartShooter());
         // shooterButton.whenReleased(new StopShooter());
