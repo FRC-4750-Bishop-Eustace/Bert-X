@@ -118,17 +118,6 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-<<<<<<< HEAD
-    driveTrain.joystickDrive(-OI.driveStick.getY(), OI.driveStick.getThrottle());
-   /** if (driveTrain.joystickDrive(-OI.driveStick.getY(), OI.driveStick.getX())){
-      m_timer.reset();
-      m_timer.start();
-      if (m_timer.get() < 5.0) {
-        driveTrain.joystickDrive(0.0, 0.0);
-        System.out.println("timer for stop work");
-    } else {
-      m_timer.reset();
-=======
     driveTrain.joystickDrive(-OI.driveStick.getY(), OI.driveStick.getX());
 
     //Every periodic, we get the status of each button. 
@@ -167,7 +156,6 @@ public class Robot extends TimedRobot {
     }
     else{
       cmdScheduler.schedule(new StopShooter());
->>>>>>> 124895a48d74a1ea87f53d17f8963af3328b684e
     }
   
 }
