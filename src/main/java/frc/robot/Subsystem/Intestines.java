@@ -10,7 +10,7 @@ public class Intestines extends SubsystemBase {
     public WPI_TalonSRX beltMotor_1;
     public WPI_TalonSRX beltMotor_2;
 
-    public static final double BASE_BELT_SPEED = +0.25;
+    public static final double BASE_BELT_SPEED = +0.5;
 
     //Stores whether the belts are running
     private boolean _belt1Running = false;
