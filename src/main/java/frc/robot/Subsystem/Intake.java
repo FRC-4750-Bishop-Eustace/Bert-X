@@ -8,7 +8,7 @@ import frc.robot.RobotMap;
 public class Intake extends SubsystemBase{
     
     //Intake wheel motor
-    public WPI_TalonSRX intakeMotor;
+    public WPI_TalonSRX intakeMotor = null;
 
     //The speed at which the motor travels
     public final double intakeSpeed = +0.5;
@@ -21,6 +21,7 @@ public class Intake extends SubsystemBase{
 
     public Intake(){
         intakeMotor = new WPI_TalonSRX(RobotMap.INTAKE_MOTOR_ID);
+        System.out.println("intake motor defined");
     }
 
     //Runs the intake wheel such that a ball can be intaken.
@@ -32,6 +33,7 @@ public class Intake extends SubsystemBase{
 
     //Stops the intake wheel.
     public void stop(){
+        System.out.println("stop works");
         _isRunning = false;
         intakeMotor.stopMotor();
     }
@@ -39,6 +41,7 @@ public class Intake extends SubsystemBase{
      * Reverses the intake wheel.
      */
     public void runReverse(){
+        System.out.println("reverse works");
         _isRunning = true;
         intakeMotor.set(-intakeSpeed);
     }

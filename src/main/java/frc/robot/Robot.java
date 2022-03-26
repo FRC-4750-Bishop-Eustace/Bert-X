@@ -118,11 +118,16 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-    driveTrain.joystickDrive(-OI.driveStick.getY(), OI.driveStick.getThrottle());
+    //driveTrain.joystickDrive(-OI.driveStick.getY(), OI.driveStick.getThrottle());
+
+    CommandScheduler.getInstance().run();
+    //oi.intakeButton.whileHeld(new StartIntake());
+    //oi.intakeButton.whenReleased(new StopIntake());
 
     //Every periodic, we get the status of each button. 
     //If the button is held, run a command, otherwise run a different command.
 
+    /*
     //Actually schedules and runs the commands.
     CommandScheduler cmdScheduler = CommandScheduler.getInstance();
 
@@ -134,6 +139,7 @@ public class Robot extends TimedRobot {
       cmdScheduler.schedule(new StopIntake());
     }
 
+    
     //If the Belt 1 button is held, run RunBeltOne, otherwise run StopBeltOne
     if (oi.belt1Button.get()){
       cmdScheduler.schedule(new RunBeltOne());
@@ -157,7 +163,7 @@ public class Robot extends TimedRobot {
     else{
       cmdScheduler.schedule(new StopShooter());
     }
-  
+    */
 }
 
   /** This function is called once when the robot is disabled. */

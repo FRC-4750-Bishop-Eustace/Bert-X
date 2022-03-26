@@ -7,6 +7,7 @@ import frc.robot.Robot;
 public class StopIntake extends InstantCommand {
     @Override
     public void initialize(){
+        System.out.println("stop command ran");
         Robot.intake.stop();
     }
 }
