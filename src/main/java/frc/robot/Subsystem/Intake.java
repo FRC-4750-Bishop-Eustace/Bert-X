@@ -26,7 +26,7 @@ public class Intake extends SubsystemBase{
 
     //Runs the intake wheel such that a ball can be intaken.
     public void run(){
-        System.out.println("run");
+        //System.out.println("run");
         _isRunning = true;
         intakeMotor.set(intakeSpeed);
     }
