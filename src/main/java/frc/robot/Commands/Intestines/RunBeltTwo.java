@@ -13,7 +13,7 @@ public class RunBeltTwo extends InstantCommand {
         _speed = speed;
     }
     public RunBeltTwo(){
-        this(Intestines.BASE_BELT_SPEED);
+        this(Intestines.BELT_2_SPEED);
     }
 
     @Override

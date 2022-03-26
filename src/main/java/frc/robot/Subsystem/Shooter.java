@@ -14,7 +14,7 @@ public class Shooter extends SubsystemBase {
     private MotorControllerGroup group;
 
     //The speed at which the motor travels
-    public final double shooterSpeed = +0.5;
+    public final double shooterSpeed = +1.0;
 
     //Stores if the intake wheel is running, forward or in reverse.
     private boolean _isRunning = false;

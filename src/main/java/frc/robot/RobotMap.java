@@ -33,13 +33,13 @@ public class RobotMap {
     //Joystick Button IDs
     public static final int INTAKE_BUTTON_ID = 7; // lt
     public static final int SHOOTER_HEAD_BUTTON_ID = 8; //rt
-    public static final int BELT_1_BUTTON_ID = 4; // y
-    public static final int BELT_2_BUTTON_ID = 3; // b
+    public static final int BELT_1_BUTTON_ID = 5; // lb
+    public static final int BELT_2_BUTTON_ID = 6; // rb
     // reverse buttons
-    public static final int REVERSE_INTAKE_BUTTON_ID = 9; // BACK
-    public static final int REVERSE_SHOOTER_HEAD_BUTTON_ID = 10; // START
-    public static final int REVERSE_BELT_1_BUTTON_ID = 1; // x
-    public static final int REVERSE_BELT_2_BUTTON_ID = 2; // a  
+    public static final int REVERSE_INTAKE_BUTTON_ID = 2; // a
+    public static final int REVERSE_SHOOTER_HEAD_BUTTON_ID = 1; // x
+    public static final int REVERSE_BELT_1_BUTTON_ID = 3; // b
+    public static final int REVERSE_BELT_2_BUTTON_ID = 4; // y
 
 
     // public static final int REVERSE_SYSTEMS_BUTTON_ID = 2;

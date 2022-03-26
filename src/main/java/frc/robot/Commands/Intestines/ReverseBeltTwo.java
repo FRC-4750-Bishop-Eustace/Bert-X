@@ -13,7 +13,7 @@ public class ReverseBeltTwo extends InstantCommand {
         _speed = speed;
     }
     public ReverseBeltTwo(){
-        this(Intestines.BASE_BELT_SPEED);
+        this(Intestines.BELT_2_SPEED);
     }
 
     @Override
