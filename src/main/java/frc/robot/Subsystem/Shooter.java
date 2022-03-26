@@ -9,8 +9,8 @@ import frc.robot.RobotMap;
 public class Shooter extends SubsystemBase {
     
     //Intake wheel motor
-    public WPI_TalonSRX shooterMotor1 = null;
-    public WPI_TalonSRX shooterMotor2 = null;
+    public WPI_TalonSRX shooterMotor1;
+    public WPI_TalonSRX shooterMotor2;
     private MotorControllerGroup group;
 
     //The speed at which the motor travels
@@ -27,9 +27,9 @@ public class Shooter extends SubsystemBase {
         shooterMotor2 = new WPI_TalonSRX(RobotMap.SHOOTER_2_MOTOR_ID);
         
         shooterMotor1.setInverted(true);
-        //shooterMotor2.setInverted(true);
         
         group = new MotorControllerGroup(shooterMotor1, shooterMotor2);
+        
     }
 
     //Runs the intake wheel such that a ball can be intaken.

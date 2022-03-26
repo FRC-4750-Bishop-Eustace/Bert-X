@@ -11,7 +11,8 @@ import frc.robot.RobotMap;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 //import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.robot.Commands.TankDrive;
-//import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.wpilibj.TimedRobot;
 
 
 
@@ -81,11 +82,11 @@ public class Drivetrain extends SubsystemBase {
 
   public boolean joystickDrive(double speed, double rotation){
     // System.out.println(String.format("Joystick movement with speed %s and rotation %s.", speed, rotation));
-    /*System.out.println("the front right motor is doing stuff, " + rightFront.get() );
+    System.out.println("the front right motor is doing stuff, " + rightFront.get() );
     System.out.println("the front left motor is doing stuff, " + leftFront.get() );
     System.out.println("the back right motor is doing stuff, " + rightBack.get() );
     System.out.println("the back left motor is doing stuff, " + leftBack.get() );
-    */
+    
     //robotDriveLeft.arcadeDrive(cube(speed), cube(rotation));
     //robotDriveRight.arcadeDrive(cube(speed), cube(rotation));
     robotDrive.arcadeDrive(.6 * cube(speed), .6 *  cube(rotation));
