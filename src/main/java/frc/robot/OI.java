@@ -6,8 +6,11 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 //import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.Commands.Intake.ReverseIntake;
 import frc.robot.Commands.Intake.StartIntake;
 import frc.robot.Commands.Intake.StopIntake;
+import frc.robot.Commands.Intestines.ReverseBeltOne;
+import frc.robot.Commands.Intestines.ReverseBeltTwo;
 import frc.robot.Commands.Intestines.RunBeltOne;
 import frc.robot.Commands.Intestines.RunBeltTwo;
 import frc.robot.Commands.Intestines.StopBeltOne;
@@ -51,6 +54,14 @@ public class OI {
         belt2Button.whileHeld(new RunBeltTwo());
         belt2Button.whenReleased(new StopBeltTwo());
 
+        reverseBelt1Button.whileHeld(new ReverseBeltOne());
+        reverseBelt1Button.whenReleased(new StopBeltOne());
+
+        reverseBelt2Button.whileHeld(new ReverseBeltTwo());
+        reverseBelt2Button.whenReleased(new StopBeltTwo());
+
+        reverseIntakeButton.whileHeld(new ReverseIntake());
+        reverseIntakeButton.whenReleased(new StopIntake());
 
 
         // reverseButton.whileHeld(new ReverseSystems());
