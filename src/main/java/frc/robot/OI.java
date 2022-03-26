@@ -29,7 +29,11 @@ public class OI {
     public JoystickButton intakeButton = new JoystickButton(controller, RobotMap.INTAKE_BUTTON_ID);
     public JoystickButton shooterButton = new JoystickButton(controller, RobotMap.SHOOTER_HEAD_BUTTON_ID);
     public JoystickButton reverseIntakeButton = new JoystickButton(controller, RobotMap.REVERSE_INTAKE_BUTTON_ID);
+<<<<<<< HEAD
     // public JoystickButton reverseShooterButton = new JoystickButton(controller, RobotMap.REVERSE_SHOOTER_HEAD_BUTTON_ID);    
+=======
+    public JoystickButton reverseShooterButton = new JoystickButton(controller, RobotMap.REVERSE_SHOOTER_HEAD_BUTTON_ID);    
+>>>>>>> dan
 
     public JoystickButton belt1Button = new JoystickButton(controller, RobotMap.BELT_1_BUTTON_ID);
     public JoystickButton belt2Button = new JoystickButton(controller, RobotMap.BELT_2_BUTTON_ID);
@@ -45,8 +49,8 @@ public class OI {
         intakeButton.whileHeld(new StartIntake());
         intakeButton.whenReleased(new StopIntake());
         
-        // shooterButton.whileHeld(new StartShooter());
-        // shooterButton.whenReleased(new StopShooter());
+        shooterButton.whileHeld(new StartShooter());
+        shooterButton.whenReleased(new StopShooter());
 
         belt1Button.whileHeld(new RunBeltOne());
         belt1Button.whenReleased(new StopBeltOne());

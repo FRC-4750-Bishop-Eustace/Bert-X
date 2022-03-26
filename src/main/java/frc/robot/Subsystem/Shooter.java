@@ -26,7 +26,7 @@ public class Shooter extends SubsystemBase {
         shooterMotor1 = new WPI_TalonSRX(RobotMap.SHOOTER_1_MOTOR_ID);
         shooterMotor2 = new WPI_TalonSRX(RobotMap.SHOOTER_2_MOTOR_ID);
         
-        shooterMotor1.setInverted(true);
+        shooterMotor2.setInverted(true);
         
         group = new MotorControllerGroup(shooterMotor1, shooterMotor2);
         
