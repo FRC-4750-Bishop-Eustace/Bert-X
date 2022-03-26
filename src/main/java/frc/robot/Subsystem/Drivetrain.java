@@ -66,7 +66,8 @@ public class Drivetrain extends SubsystemBase {
     //inverts the left side to drive
     //rightFront.setInverted(true);
     //rightBack.setInverted(true);
-    rightMotors.setInverted(true);
+    //rightMotors.setInverted(true);
+    leftMotors.setInverted(true);
     
 
     // Stop "output not updated often enough" error from printing
@@ -80,12 +81,12 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public boolean joystickDrive(double speed, double rotation){
-    System.out.println(String.format("Joystick movement with speed %s and rotation %s.", speed, rotation));
-    /*System.out.println("the front right motor is doing stuff, " + rightFront.get() );
+    // System.out.println(String.format("Joystick movement with speed %s and rotation %s.", speed, rotation));
+    System.out.println("the front right motor is doing stuff, " + rightFront.get() );
     System.out.println("the front left motor is doing stuff, " + leftFront.get() );
     System.out.println("the back right motor is doing stuff, " + rightBack.get() );
     System.out.println("the back left motor is doing stuff, " + leftBack.get() );
-    */
+    
     //robotDriveLeft.arcadeDrive(cube(speed), cube(rotation));
     //robotDriveRight.arcadeDrive(cube(speed), cube(rotation));
     robotDrive.arcadeDrive(.6 * cube(speed), .6 *  cube(rotation));

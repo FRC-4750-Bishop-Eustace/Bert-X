@@ -2,16 +2,19 @@ package frc.robot.Subsystem;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
 
-public class Intake extends SubsystemBase{
+public class Shooter extends SubsystemBase {
     
     //Intake wheel motor
-    public WPI_TalonSRX intakeMotor = null;
+    public WPI_TalonSRX shooterMotor1;
+    public WPI_TalonSRX shooterMotor2;
+    private MotorControllerGroup group;
 
     //The speed at which the motor travels
-    public final double intakeSpeed = +0.5;
+    public final double shooterSpeed = +0.5;
 
     //Stores if the intake wheel is running, forward or in reverse.
     private boolean _isRunning = false;
@@ -19,30 +22,26 @@ public class Intake extends SubsystemBase{
         return _isRunning;
     }
 
-    public Intake(){
-        intakeMotor = new WPI_TalonSRX(RobotMap.INTAKE_MOTOR_ID);
-        System.out.println("intake motor defined");
+    public Shooter(){
+        shooterMotor1 = new WPI_TalonSRX(RobotMap.SHOOTER_1_MOTOR_ID);
+        shooterMotor2 = new WPI_TalonSRX(RobotMap.SHOOTER_2_MOTOR_ID);
+        
+        shooterMotor1.setInverted(true);
+        
+        group = new MotorControllerGroup(shooterMotor1, shooterMotor2);
+        
     }
 
     //Runs the intake wheel such that a ball can be intaken.
     public void run(){
         System.out.println("run");
         _isRunning = true;
-        intakeMotor.set(intakeSpeed);
+        group.set(shooterSpeed);
     }
 
     //Stops the intake wheel.
     public void stop(){
-        System.out.println("stop works");
         _isRunning = false;
-        intakeMotor.stopMotor();
-    }
-    /**
-     * Reverses the intake wheel.
-     */
-    public void runReverse(){
-        System.out.println("reverse works");
-        _isRunning = true;
-        intakeMotor.set(-intakeSpeed);
+        group.stopMotor();
     }
 }
