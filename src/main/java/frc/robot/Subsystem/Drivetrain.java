@@ -66,8 +66,8 @@ public class Drivetrain extends SubsystemBase {
     //inverts the left side to drive
     //rightFront.setInverted(true);
     //rightBack.setInverted(true);
-    //rightMotors.setInverted(true);
-    leftMotors.setInverted(true);
+    rightMotors.setInverted(true);
+    // leftMotors.setInverted(true);
     
 
     // Stop "output not updated often enough" error from printing
