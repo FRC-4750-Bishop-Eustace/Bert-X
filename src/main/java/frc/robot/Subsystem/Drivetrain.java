@@ -11,6 +11,10 @@ import frc.robot.RobotMap;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 //import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.robot.Commands.TankDrive;
+import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.wpilibj.TimedRobot;
+
+
 
 public class Drivetrain extends SubsystemBase {
 
@@ -28,11 +32,15 @@ public class Drivetrain extends SubsystemBase {
       WPI_TalonSRX rightFront = null; 
       WPI_TalonSRX leftBack = null;
       WPI_TalonSRX rightBack = null;
+      
   
 
   public Drivetrain() { 
     System.out.println("!!! new drivetrain.");
+    
+    //Comment out this line to disable the drive train.
     setDefaultCommand(new TankDrive(this));
+    
     // setDefaultCommand(new TankDrive());       //This code throws a nullref because there's circular constructor calls
     // System.out.println("!!! drivetrain successfully instantiated.");
 
@@ -50,6 +58,8 @@ public class Drivetrain extends SubsystemBase {
     //robotDriveBack = new DifferentialDrive(leftBack, rightBack);
     //robotDriveLeft = new DifferentialDrive(leftFront, leftBack);
     //robotDriveRight = new DifferentialDrive(rightFront, rightBack);
+
+    
   
     
 
@@ -57,12 +67,11 @@ public class Drivetrain extends SubsystemBase {
     //rightFront.setInverted(true);
     //rightBack.setInverted(true);
     rightMotors.setInverted(true);
+    // leftMotors.setInverted(true);
     
 
     // Stop "output not updated often enough" error from printing
-    //robotDriveLeft.setSafetyEnabled(false);
-    //robotDriveRight.setSafetyEnabled(false);
-    //System.out.println("After safety enabled false"); 
+    // robotDrive.setSafetyEnabled(false); 
 
   }
 
@@ -71,17 +80,18 @@ public class Drivetrain extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 
-  public void joystickDrive(double speed, double rotation){
-    System.out.println(String.format("Joystick movement with speed %s and rotation %s.", speed, rotation));
-    /*System.out.println("the front right motor is doing stuff, " + rightFront.get() );
+  public boolean joystickDrive(double speed, double rotation){
+    // System.out.println(String.format("Joystick movement with speed %s and rotation %s.", speed, rotation));
+    System.out.println("the front right motor is doing stuff, " + rightFront.get() );
     System.out.println("the front left motor is doing stuff, " + leftFront.get() );
     System.out.println("the back right motor is doing stuff, " + rightBack.get() );
     System.out.println("the back left motor is doing stuff, " + leftBack.get() );
-    */
+    
     //robotDriveLeft.arcadeDrive(cube(speed), cube(rotation));
     //robotDriveRight.arcadeDrive(cube(speed), cube(rotation));
-    robotDrive.arcadeDrive(cube(speed), cube(rotation));
+    robotDrive.arcadeDrive(.6 * cube(speed), .6 *  cube(rotation));
     //robotDriveBack.arcadeDrive(cube(speed), cube(rotation));
+    return false;
 
     /*System.out.println("right front is " + rightFront.isAlive());
     System.out.println("right back is " + rightBack.isAlive());

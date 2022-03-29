@@ -35,7 +35,7 @@ public class TankDrive extends CommandBase{
     // if (
 
     // Pass the joystick values to joystickDrive()
-        Robot.driveTrain.joystickDrive(OI.driveStick.getY(), OI.driveStick.getThrottle());
+        Robot.driveTrain.joystickDrive(-OI.driveStick.getY(), OI.driveStick.getThrottle());
   }
   
   @Override
