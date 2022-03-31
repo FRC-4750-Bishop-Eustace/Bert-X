@@ -4,7 +4,6 @@
 
 package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
-//import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Commands.Intake.ReverseIntake;
 import frc.robot.Commands.Intake.StartIntake;
@@ -17,8 +16,6 @@ import frc.robot.Commands.Intestines.StopBeltOne;
 import frc.robot.Commands.Intestines.StopBeltTwo;
 import frc.robot.Commands.Shooter.StartShooter;
 import frc.robot.Commands.Shooter.StopShooter;
-import frc.robot.Subsystem.Shooter;
-
 
 public class OI {
 

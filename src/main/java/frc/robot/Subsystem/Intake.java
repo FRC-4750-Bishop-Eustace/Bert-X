@@ -11,7 +11,7 @@ public class Intake extends SubsystemBase{
     public WPI_TalonSRX intakeMotor = null;
 
     //The speed at which the motor travels
-    public final double intakeSpeed = +0.5;
+    public final double intakeSpeed = +0.75;
 
     //Stores if the intake wheel is running, forward or in reverse.
     private boolean _isRunning = false;

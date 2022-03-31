@@ -5,25 +5,24 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.Commands.Intake.StartIntake;
-import frc.robot.Commands.Intake.StopIntake;
-import frc.robot.Commands.Intestines.RunBeltOne;
-import frc.robot.Commands.Intestines.RunBeltTwo;
-import frc.robot.Commands.Intestines.StopBeltOne;
-import frc.robot.Commands.Intestines.StopBeltTwo;
-import frc.robot.Commands.Shooter.StartShooter;
-import frc.robot.Commands.Shooter.StopShooter;
 import frc.robot.Subsystem.Drivetrain;
 import frc.robot.Subsystem.Intake;
 import frc.robot.Subsystem.Intestines;
 import frc.robot.Subsystem.Shooter;
+
+import com.kauailabs.navx.IMUProtocol.YPRUpdate;
+
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.cscore.VideoSource;
+import edu.wpi.first.cscore.VideoMode.PixelFormat;
+import edu.wpi.first.cscore.UsbCamera;
+import edu.wpi.first.cscore.AxisCamera;
+import edu.wpi.first.cscore.CvSource;
+import edu.wpi.first.cscore.MjpegServer;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -56,12 +55,19 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     
     oi = new OI();
+    
 
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
 
-    CameraServer.startAutomaticCapture();
+    UsbCamera BottomCamera = CameraServer.startAutomaticCapture(0);
+    //CameraServer.addAxisCamera(m_autoSelected);
+    UsbCamera TopCamera = CameraServer.startAutomaticCapture(1);
+    //TopCamera.setResolution(640, 480);
+    //TopCamera.setVideoMode(PixelFormat.kYUYV, 640, 480, 30);
+    BottomCamera.setResolution(160, 120);
+    TopCamera.setResolution(160, 120);
 
   }
 

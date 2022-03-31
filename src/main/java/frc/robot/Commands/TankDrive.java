@@ -25,7 +25,7 @@ public class TankDrive extends CommandBase{
   @Override
   public void execute() {
 
-    System.out.println("Execute tankdrive command");
+    //System.out.println("Execute tankdrive command");
 
     // double speed = OI.driveStick.getY();
     // double rotation = OI.driveStick.getThrottle();
