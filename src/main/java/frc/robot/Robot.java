@@ -12,17 +12,9 @@ import frc.robot.Subsystem.Drivetrain;
 import frc.robot.Subsystem.Intake;
 import frc.robot.Subsystem.Intestines;
 import frc.robot.Subsystem.Shooter;
-
-import com.kauailabs.navx.IMUProtocol.YPRUpdate;
-
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.cscore.VideoSource;
-import edu.wpi.first.cscore.VideoMode.PixelFormat;
 import edu.wpi.first.cscore.UsbCamera;
-import edu.wpi.first.cscore.AxisCamera;
-import edu.wpi.first.cscore.CvSource;
-import edu.wpi.first.cscore.MjpegServer;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
