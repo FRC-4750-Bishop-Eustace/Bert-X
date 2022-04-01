@@ -45,4 +45,6 @@ public class Intake extends SubsystemBase{
         _isRunning = true;
         intakeMotor.set(-intakeSpeed);
     }
+
+    //intakeMotor.setSafetyEnabled(false); 
 }

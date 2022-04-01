@@ -93,6 +93,7 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during autonomous. */
   @Override
   public void autonomousPeriodic() {
+    System.out.println("auto works");
     // Drive for 2 seconds
   // stop robot
     switch (m_autoSelected) {
@@ -102,6 +103,7 @@ public class Robot extends TimedRobot {
       case kDefaultAuto:
       default:
         // Put default auto code here
+        System.out.println("");
         break;
     }
   }
