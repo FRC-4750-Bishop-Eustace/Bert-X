@@ -29,7 +29,7 @@ public class Robot extends TimedRobot {
   private static final String kCustomAuto = "My Auto";
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
-  private final Timer m_timer = new Timer();
+  //private final Timer m_timer = new Timer();
 
   //Subsystems
   public static Drivetrain driveTrain = new Drivetrain();
@@ -102,17 +102,18 @@ public class Robot extends TimedRobot {
         break;
       case kDefaultAuto:
       default:
+      driveTrain.autonomousDrive(-0.5, 0.0);
         // Put default auto code here
         System.out.println("switch works");
         
-      if (m_timer.get()<2.0){
+      /*if (m_timer.get()<2.0){
         driveTrain.autonomousDrive(-0.5, 0.0);
         System.out.println("auto drive works");
       } else {
         driveTrain.brake();
         System.out.println("auto brake workss");
     }
-
+    */
         break;
     }
   }

@@ -4,6 +4,7 @@
 
 package frc.robot.Subsystem;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -24,6 +25,8 @@ public class Drivetrain extends SubsystemBase {
       WPI_TalonSRX rightFront = null; 
       WPI_TalonSRX leftBack = null;
       WPI_TalonSRX rightBack = null;
+
+      private final Timer m_timer = new Timer();
       
   
 
@@ -79,7 +82,15 @@ public class Drivetrain extends SubsystemBase {
     System.out.println("the back right motor is doing stuff, " + rightBack.get() );
     System.out.println("the back left motor is doing stuff, " + leftBack.get() );
 
-    robotDrive.arcadeDrive(.6 * cube(speed), .6 *  cube(rotation));
+    boolean isRunning = false;
+
+    if (m_timer.get()<2.0 && isRunning == false){
+      robotDrive.arcadeDrive(.6 * cube(speed), .6 *  cube(rotation));
+      System.out.println("auto drive works");
+    } else {
+      brake();
+      System.out.println("auto brake workss");
+  }
 
   }
 
