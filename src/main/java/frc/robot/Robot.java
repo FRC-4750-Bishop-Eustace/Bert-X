@@ -103,7 +103,7 @@ public class Robot extends TimedRobot {
       case kDefaultAuto:
       default:
         // Put default auto code here
-        System.out.println("");
+        System.out.println("switch works");
         break;
     }
   }
