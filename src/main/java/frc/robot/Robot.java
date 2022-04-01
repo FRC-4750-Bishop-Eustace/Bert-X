@@ -104,6 +104,15 @@ public class Robot extends TimedRobot {
       default:
         // Put default auto code here
         System.out.println("switch works");
+        
+      if (m_timer.get()<2.0){
+        driveTrain.autonomousDrive(-0.5, 0.0);
+        System.out.println("auto drive works");
+      } else {
+        driveTrain.brake();
+        System.out.println("auto brake workss");
+    }
+
         break;
     }
   }
