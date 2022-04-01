@@ -72,6 +72,18 @@ public class Drivetrain extends SubsystemBase {
 
   }
 
+  public void autonomousDrive(double speed, double rotation){
+    System.out.println(String.format("Auto movement with speed% and rotation%, ", speed, rotation));
+    System.out.println("the front right motor is doing stuff, " + rightFront.get() );
+    System.out.println("the front left motor is doing stuff, " + leftFront.get() );
+    System.out.println("the back right motor is doing stuff, " + rightBack.get() );
+    System.out.println("the back left motor is doing stuff, " + leftBack.get() );
+
+    robotDrive.arcadeDrive(.6 * cube(speed), .6 *  cube(rotation));
+
+  }
+
+
   /**
      * Brakes all motors on the drive train
      */
